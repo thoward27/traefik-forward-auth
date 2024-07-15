@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
-	internal "github.com/thomseddon/traefik-forward-auth/internal"
+	internal "github.com/thoward27/traefik-forward-auth/internal"
 )
 
 // Main
@@ -26,6 +26,6 @@ func main() {
 
 	// Start
 	log.WithField("config", config).Debug("Starting with config")
-	log.Infof("Listening on :%d", config.Port)
-	log.Info(http.ListenAndServe(fmt.Sprintf(":%d", config.Port), nil))
+	log.Infof("Listening on %s:%d", config.Bind, config.Port)
+	log.Info(http.ListenAndServe(fmt.Sprintf("%s:%d", config.Bind, config.Port), nil))
 }
